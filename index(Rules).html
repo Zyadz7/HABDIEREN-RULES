@@ -384,8 +384,10 @@ section {
 .image-slot.has-image img {
   display:block
 }
-.image-slot.has-image .slot-copy {
-  display:none
+.image-slot.has-image .slot-copy,
+.logo-placeholder.has-image .slot-copy,
+#boardSlot.has-image .slot-copy {
+  display: none !important;
 }
 .upload-label {
   display:inline-flex;

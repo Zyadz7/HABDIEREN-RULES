@@ -984,9 +984,102 @@ section {
   }
 }
 
+/* شاشة الصلاة على النبي */
+#salawat-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at center, rgba(110, 65, 100, .28), transparent 65%),
+    #120b14;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+
+#salawat-intro::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 212, 106, .08);
+  filter: blur(65px);
+}
+
+.salawat-content {
+  position: relative;
+  text-align: center;
+  padding: 30px;
+  animation: salawatAppear .65s ease both;
+}
+
+.salawat-ornament {
+  color: #ffd46a;
+  font-size: 25px;
+  margin-bottom: 20px;
+  opacity: .9;
+}
+
+.salawat-text {
+  margin: 0;
+  color: #ffe6a3;
+  font-family: inherit;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.8;
+  text-shadow: 0 0 25px rgba(255, 212, 106, .22);
+}
+
+.salawat-subtitle {
+  margin-top: 12px;
+  color: #c9b9c9;
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
+#salawat-intro.salawat-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes salawatAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #salawat-intro {
+    transition: none;
+  }
+
+  .salawat-content {
+    animation: none;
+  }
+}
+
   </style>
  </head>
  <body>
+  
+<div id="salawat-intro" role="status" aria-label="صل على رسول الله">
+  <div class="salawat-content">
+    <div class="salawat-ornament">✦ ۞ ✦</div>
+    <p class="salawat-text">صَلِّ على رسول الله ﷺ</p>
+    <div class="salawat-subtitle">اللهم صلِّ وسلم وبارك عليه</div>
+  </div>
+</div>
+
   <header class="topbar">
    <div class="wrap nav">
     <a class="brand" href="#home">
@@ -2153,5 +2246,17 @@ if (menuButton && navLinks) {
   });
 }
   </script>
+  
+<script>
+  (() => {
+    const intro = document.getElementById("salawat-intro");
+    if (!intro) return;
+
+    window.setTimeout(() => {
+      intro.classList.add("salawat-hidden");
+    }, 1000);
+  })();
+</script>
+
  </body>
 </html>

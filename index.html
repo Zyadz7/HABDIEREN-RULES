@@ -1067,7 +1067,247 @@ section {
     animation: none;
   }
 }
+/* ===== CINEMATIC CARDS EMERGING FROM LOGO ===== */
 
+.hero-art {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+}
+
+.floating-deck {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    overflow: visible;
+}
+
+/* الكروت */
+.floating-card {
+    position: absolute;
+    width: 62px;
+    height: 92px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 145, .8);
+    background: #241326;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, .45),
+        0 0 14px rgba(255, 190, 75, .2);
+
+    transform-origin: center;
+    animation: emergeFromLogo 4.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+.floating-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* أماكن قريبة من البطاقة */
+.card-one {
+    top: 15%;
+    left: 13%;
+    --rotation: -20deg;
+    --distance-x: -13px;
+    animation-delay: 0s;
+}
+
+.card-two {
+    top: 13%;
+    right: 13%;
+    --rotation: 18deg;
+    --distance-x: 13px;
+    animation-delay: -1s;
+}
+
+.card-three {
+    bottom: 13%;
+    left: 12%;
+    --rotation: 15deg;
+    --distance-x: -15px;
+    animation-delay: -2s;
+}
+
+.card-four {
+    bottom: 12%;
+    right: 12%;
+    --rotation: -17deg;
+    --distance-x: 15px;
+    animation-delay: -3s;
+}
+
+.card-five {
+    top: 43%;
+    right: 7%;
+    width: 48px;
+    height: 72px;
+    --rotation: 25deg;
+    --distance-x: 12px;
+    animation-delay: -1.7s;
+}
+/* الكارت السادس - ناحية الشمال */
+.card-six {
+    top: 43%;
+    left: 7%;
+    width: 48px;
+    height: 72px;
+    --rotation: -25deg;
+    --distance-x: -12px;
+    animation-delay: -2.5s;
+}
+
+/* حركة خروج الكروت من اللوجو */
+@keyframes emergeFromLogo {
+    0%, 100% {
+        transform: translate(0, 12px) scale(.65) rotate(0deg);
+        opacity: .45;
+    }
+
+    50% {
+        transform:
+            translate(var(--distance-x), -15px)
+            scale(1)
+            rotate(var(--rotation));
+        opacity: 1;
+    }
+}
+
+/* اللوجو يظل فوق الكروت */
+.logo-placeholder.logo-image-slot {
+    position: relative;
+    z-index: 4;
+}
+
+/* الموبايل */
+@media (max-width: 600px) {
+    .floating-deck {
+        inset: 0;
+    }
+
+    .floating-card {
+        width: 42px;
+        height: 63px;
+    }
+
+    .card-five {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-card {
+        animation: none;
+    }
+}/* ===== CINEMATIC MAIN LOGO CARD INTERACTION ===== */
+
+.logo-placeholder.logo-image-slot {
+    position: relative;
+    z-index: 4;
+    overflow: visible;
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+/* الهالة المحيطة ببطاقة اللوجو */
+.logo-placeholder.logo-image-slot::after {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    border-radius: 38px;
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 195, 75, .20),
+        rgba(255, 195, 75, .08) 45%,
+        transparent 72%
+    );
+    filter: blur(18px);
+    opacity: .45;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity .45s ease, transform .45s ease;
+}
+
+/* توهج الإطار الذهبي */
+.logo-placeholder.logo-image-slot::before {
+    transition:
+        border-color .45s ease,
+        box-shadow .45s ease;
+}
+
+/* عند الوقوف بالماوس */
+@media (hover: hover) {
+    .logo-placeholder.logo-image-slot:hover {
+        transform: translateY(-8px) scale(1.025);
+        border-color: rgba(255, 220, 145, .95);
+        box-shadow:
+            0 28px 65px rgba(0, 0, 0, .55),
+            0 0 22px rgba(255, 195, 75, .35),
+            0 0 55px rgba(255, 195, 75, .18);
+    }
+
+    .logo-placeholder.logo-image-slot:hover::after {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+    .logo-placeholder.logo-image-slot:hover::before {
+        border-color: rgba(255, 220, 145, .8);
+        box-shadow:
+            inset 0 0 20px rgba(255, 205, 110, .16),
+            0 0 18px rgba(255, 195, 75, .18);
+    }
+}
+
+/* تأثير اللمس على الموبايل */
+.logo-placeholder.logo-image-slot:active {
+    transform: scale(.98);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .5),
+        0 0 35px rgba(255, 195, 75, .4);
+}
+
+.logo-placeholder.logo-image-slot:active::after {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-placeholder.logo-image-slot,
+    .logo-placeholder.logo-image-slot::before,
+    .logo-placeholder.logo-image-slot::after {
+        transition: none;
+    }
+}/* VERSION 2 - CINEMATIC 3D */
+
+.logo-placeholder.logo-image-slot {
+    background:
+        radial-gradient(ellipse at 50% 35%, #58304d, #1b1023 72%);
+    border: 1px solid rgba(255,215,145,.55);
+    border-radius: 26px;
+    box-shadow:
+        0 30px 55px rgba(0,0,0,.55),
+        0 12px 25px rgba(125,65,115,.18),
+        inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+.logo-placeholder.logo-image-slot .logo-image {
+    padding: 20px;
+    filter:
+        drop-shadow(0 12px 14px rgba(0,0,0,.55))
+        drop-shadow(0 0 12px rgba(255,205,120,.18));
+}
+
+.logo-placeholder.logo-image-slot:hover {
+    transform: translateY(-8px) scale(1.025);
+}
   </style>
  </head>
  <body>
@@ -1184,6 +1424,30 @@ section {
      <div class="hero-art">
       <div class="orbit">
       </div>
+      <div class="floating-deck">
+    <div class="floating-card card-one">
+        <img src="images/card-back-reward.jpg" alt="">
+    </div>
+
+    <div class="floating-card card-two">
+        <img src="images/card-back-punishment.jpg" alt="">
+    </div>
+
+    <div class="floating-card card-three">
+        <img src="images/card-back-helper.jpg" alt="">
+    </div>
+
+    <div class="floating-card card-four">
+        <img src="images/card-back-speed.jpg" alt="">
+    </div>
+
+    <div class="floating-card card-five">
+        <img src="images/card-back-pause.jpg" alt="">
+    </div>
+    <div class="floating-card card-six">
+    <img src="images/card-back-hint.jpg" alt="">
+    </div>
+</div>
       <div class="logo-placeholder logo-image-slot">
        <div class="logo-fallback">
         <div class="dice">

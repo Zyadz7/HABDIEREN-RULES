@@ -166,32 +166,125 @@
       font: 400 34px var(--f);
       color: #fff;
     }
-    #fan {
-      position: relative;
-      height: 400px;
-    }
-    #fan .slot {
-      position: absolute;
-      width: 50%;
-      top: 10%;
-      border: 3px solid #fff4;
-      box-shadow: 0 24px 50px #0008;
-    }
-    #fan .slot:nth-child(1) {
-      inset-inline-start: 0;
-      transform: rotate(-11deg);
-    }
-    #fan .slot:nth-child(2) {
-      inset-inline-start: 25%;
-      top: 0;
-      transform: rotate(2deg);
-      z-index: 2;
-    }
-    #fan .slot:nth-child(3) {
-      inset-inline-start: 50%;
-      transform: rotate(13deg);
-    }
+    /* ===== Hero logo + flying cards ===== */
+.hero-art {
+  position: relative;
+  min-height: 400px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.orbit {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px dashed #ffd46a55;
+  border-radius: 50%;
+  animation: spin 40s linear infinite;
+}
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--gold);
+  box-shadow: 0 0 24px #ffbf4b;
+}
+.orbit::before { top: 32px; left: 45px; }
+.orbit::after  { bottom: 48px; right: 20px; background: var(--red); }
+@keyframes spin { to { transform: rotate(360deg); } }
 
+.logo-card {
+  position: relative;
+  z-index: 4;
+  width: min(250px, 70%);
+  aspect-ratio: 4/5;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 215, 145, .55);
+  background: radial-gradient(ellipse at 50% 35%, #58304d, #1b1023 72%);
+  box-shadow: 0 30px 55px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .2);
+  transform: rotate(-4deg);
+  transition: transform .45s ease, box-shadow .45s ease;
+}
+.logo-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #ffd46a66;
+  border-radius: 16px;
+  pointer-events: none;
+}
+.logo-card:active { transform: rotate(-4deg) scale(.98); }
+@media (hover: hover) {
+  .logo-card:hover {
+    transform: translateY(-8px) scale(1.025) rotate(-4deg);
+    box-shadow: 0 28px 65px rgba(0, 0, 0, .55), 0 0 55px rgba(255, 195, 75, .3);
+  }
+}
+.logo-fallback { display: grid; gap: 6px; padding: 24px; }
+.logo-fallback b { font: 400 42px/1 var(--f); color: var(--gold); }
+.logo-fallback span { font: 400 36px/1 var(--f); color: #fff; text-shadow: 0 4px 0 var(--red); }
+.logo-image {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .55));
+}
+.logo-card.has-logo .logo-image { display: block; }
+.logo-card.has-logo .logo-fallback { display: none; }
+
+.floating-deck {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.floating-card {
+  position: absolute;
+  width: 62px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 145, .8);
+  background: linear-gradient(150deg, var(--c), #241326);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .45), 0 0 14px rgba(255, 190, 75, .2);
+  animation: emerge 4.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.floating-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* مكان كل كارت حوالين اللوجو */
+.card-1 { top: 15%;    left: 13%;  --rotation: -20deg; --distance-x: -13px; animation-delay: 0s; }
+.card-2 { top: 13%;    right: 13%; --rotation: 18deg;  --distance-x: 13px;  animation-delay: -1s; }
+.card-3 { bottom: 13%; left: 12%;  --rotation: 15deg;  --distance-x: -15px; animation-delay: -2s; }
+.card-4 { bottom: 12%; right: 12%; --rotation: -17deg; --distance-x: 15px;  animation-delay: -3s; }
+.card-5 { top: 43%;    right: 5%;  width: 48px; height: 72px; --rotation: 25deg;  --distance-x: 12px;  animation-delay: -1.7s; }
+.card-6 { top: 43%;    left: 5%;   width: 48px; height: 72px; --rotation: -25deg; --distance-x: -12px; animation-delay: -2.5s; }
+
+@keyframes emerge {
+  0%, 100% { transform: translate(0, 12px) scale(.65) rotate(0deg); opacity: .45; }
+  50%      { transform: translate(var(--distance-x), -15px) scale(1) rotate(var(--rotation)); opacity: 1; }
+}
+@media (max-width: 600px) {
+  .hero-art { min-height: 340px; }
+  .orbit { width: 270px; height: 270px; }
+  .logo-card { width: 210px; }
+  .floating-card { width: 42px; height: 63px; font-size: 18px; }
+  .card-5, .card-6 { width: 36px; height: 54px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-card, .orbit { animation: none; }
+}
     /* ===== Card slots (صور الكروت) ===== */
     .slot {
       position: relative;
@@ -680,7 +773,7 @@
       #bar,
       #up,
       .btns,
-      #fan {
+      #hero-art {
         display: none!important;
       }
       .hero {
@@ -719,9 +812,6 @@
     @media (max-width:800px) {
       .hero .wrap {
         grid-template-columns: 1fr;
-      }
-      #fan {
-        height: 340px;
       }
       .lv {
         flex-direction: column;
@@ -787,7 +877,14 @@
           <div><b>20</b>مربع، وأول واحد يوصل بالظبط يكسب</div>
         </div>
       </div>
-      <div id="fan" aria-hidden="true"></div>
+      <div class="hero-art">
+  <div class="orbit" aria-hidden="true"></div>
+  <div class="floating-deck" id="fan" aria-hidden="true"></div>
+  <div class="logo-card" id="logoCard">
+    <div class="logo-fallback"><b dir="ltr">Z&amp;O&amp;M</b><span>هبدieren</span></div>
+    <img class="logo-image" src="images/logo.png" alt="لوجو لعبة Z&O&M هبدieren" data-optional>
+  </div>
+</div>
     </div>
   </header>
   <section id="setup">
@@ -1153,11 +1250,28 @@
     }
 
     /* ---------- 2) رسم الأقسام من data.js ---------- */
-    function renderHero() {
-      $('#fan').innerHTML = CARDS.slice(0, 3)
-        .map(card => slot(card.image, card.icon, card.color))
-        .join('');
-    }
+   /* الكروت اللي بتطير حوالين اللوجو (الترتيب = card-1 … card-6) */
+const FLYING = ['reward', 'punishment', 'helper', 'speed', 'pause', 'hint'];
+
+function renderHero() {
+  $('#fan').innerHTML = FLYING.map((name, i) => {
+    const card = CARDS.find(c => c.image === `card-back-${name}.jpg`);
+    return `
+      <div class="floating-card card-${i + 1}" style="--c:${card.color}">
+        ${card.icon}
+        <img src="images/${card.image}" alt="" data-optional>
+      </div>`;
+  }).join('');
+}
+
+/* لو اللوجو اتحمّل يظهر بدل الاسم المكتوب */
+function initLogo() {
+  const box = $('#logoCard');
+  const img = $('img', box);
+  const ok = () => box.classList.add('has-logo');
+  if (img.complete && img.naturalWidth) ok();
+  else img.addEventListener('load', ok);
+}
 
     function renderCards() {
       $('#cardGrid').innerHTML = CARDS.map(card => `
@@ -1325,6 +1439,8 @@
     initScrollUI();
     initPrint();
     initSplash();
+    initLogo();
+
     window.addEventListener('load', removeBrokenImages);
     </script>
 </body>

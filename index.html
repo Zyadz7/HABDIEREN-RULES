@@ -971,6 +971,19 @@ footer { border-top: 4px solid; border-image: linear-gradient(90deg, var(--red),
 @media (prefers-reduced-motion: reduce) {
   .rc, .ct, ol li, details, .lv div, .calc, .bd { animation: none !important; }
   .btn::after, .slot::after { display: none; }
+}.credit {
+  width: min(320px, 80%);
+  margin: 18px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+  font-size: 14px;
+  letter-spacing: .12em;
+  color: #a994a9;
+}
+.credit strong {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: .16em;
 }
   </style>
 </head>
@@ -1293,7 +1306,11 @@ footer { border-top: 4px solid; border-image: linear-gradient(90deg, var(--red),
       <p style="margin-top:8px;font-weight:600">براڤووو عليييك! 🎉</p>
     </div>
   </section>
-  <footer><b dir="ltr">Z&amp;O&amp;M هبدieren</b>دليل اللعبة · العب | اضحك | اهبد</footer>
+    <footer>
+  <b dir="ltr">Z&amp;O&amp;M هبدieren</b>
+  دليل اللعبة · العب | اضحك | اهبد
+  <div class="credit" dir="ltr">Developed by <strong>ZY AD ALY</strong></div>
+   </footer>
   <script>
     /* ==========================================================
        data.js — محتوى الكروت (عدّل النصوص من هنا بسهولة)

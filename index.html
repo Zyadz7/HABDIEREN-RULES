@@ -839,7 +839,139 @@
       width: 90px;
       float: inline-start;
       margin-inline-end: 16px;
-    }
+    }/* ==========================================================
+   لمسات جمالية — الصقها في آخر ملف الـ CSS
+   ========================================================== */
+
+/* 1) تحديد النص + شريط التمرير بألوان اللعبة */
+::selection { background: var(--gold); color: var(--ink); }
+html { scrollbar-color: var(--red) var(--ink); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 10px; border: 2px solid var(--ink); }
+
+/* 2) النافبار زجاجي شفاف */
+nav {
+  background: rgba(30, 15, 35, .95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 3) نقط خفيفة في خلفية الهيرو */
+.hero { position: relative; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+.hero .wrap { position: relative; }
+
+/* 4) أرقام الهيرو بتدرج ذهبي */
+.stats b {
+  background: linear-gradient(180deg, #fff, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 5) خط ملوّن صغير تحت كل عنوان قسم */
+h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: 10px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, var(--gold), var(--red));
+}
+
+/* 6) الأزرار: رفعة + لمعة + ضغطة */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .6s ease;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(255, 200, 61, .35); }
+.btn:hover::after { transform: translateX(120%); }
+.btn:active { transform: scale(.97); }
+
+/* 7) الكروت: الحدود تاخد لون الكارت لما تقف عليها + لمعة على الصور */
+.rc:hover { border-color: var(--c, var(--gold)); }
+.slot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+  pointer-events: none;
+}
+.ct:hover .slot::after, .rc:hover .slot::after { transform: translateX(120%); }
+.ct:hover .slot { transform: translateY(-6px) rotate(-2deg); }
+
+/* 8) أرقام الخطوات بحلقة ذهبية */
+ol li::before {
+  background: linear-gradient(135deg, var(--ink), #4a1c4f);
+  box-shadow: 0 0 0 4px var(--gold);
+}
+
+/* 9) مربعات المراحل ترتفع بلطف */
+.lv div { transition: transform .25s ease, box-shadow .25s ease; }
+.lv div:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(30, 15, 35, .22); }
+
+/* 10) الأسئلة: علامة + و − بدل السهم */
+summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--red);
+  font: 700 20px/1 'IBM Plex Sans Arabic', sans-serif;
+  transition: transform .25s ease, background .25s ease;
+}
+details[open] summary::after { content: "−"; background: var(--gold); color: var(--ink); transform: rotate(180deg); }
+
+/* 11) التابات: ضغطة ناعمة */
+[role=tab] { transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+[role=tab]:hover { transform: translateY(-2px); border-color: var(--c); }
+
+/* 12) زر "لفوق" يكبر شوية */
+#up { transition: opacity .3s ease, transform .2s ease; }
+#up:hover { transform: translateY(-3px) scale(1.08); }
+
+/* 13) الفوتر بخط ثلاثي الألوان فوقه */
+footer { border-top: 4px solid; border-image: linear-gradient(90deg, var(--red), var(--gold), #9b6bff) 1; }
+
+/* 14) ظهور ناعم للعناصر وانت بتنزل */
+@supports (animation-timeline: view()) {
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  .rc, .ct, ol li, details, .lv div, .calc, .bd {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rc, .ct, ol li, details, .lv div, .calc, .bd { animation: none !important; }
+  .btn::after, .slot::after { display: none; }
+}
   </style>
 </head>
 <body>

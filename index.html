@@ -1,219 +1,1331 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1e0f23">
-<meta name="description" content="الدليل الرسمي للعبة Z&O&M هبدieren: قواعد اللعب والكروت والتحديات.">
-<title>Z&O&M هبدieren | دليل اللعبة</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lalezar&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#1e0f23;--gold:#ffc83d;--red:#e8404b;--bg:#f5f1f7;--tx:#2a1830;--mut:#6d5a74;--ln:#e2d8e8;--f:'Lalezar','IBM Plex Sans Arabic',sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.9 'IBM Plex Sans Arabic',Tahoma,sans-serif}
-h1,h2,h3{font-family:var(--f);font-weight:400;margin:0;line-height:1.25}
-p{margin:0}a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.wrap{width:min(1100px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:10;background:var(--ink);border-bottom:1px solid #fff2}
-nav .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;align-items:center;min-height:56px}
-nav b{font:400 22px var(--f);color:var(--gold);margin-inline-end:14px;white-space:nowrap}
-nav a{color:#d9c9de;font-size:14px;font-weight:500;padding:6px 12px;border-radius:99px;white-space:nowrap}
-nav a:hover,nav a.on{background:var(--gold);color:var(--ink)}
-.hero{background:radial-gradient(circle at 85% 10%,#4a1c4f,transparent 55%),var(--ink);color:#fff;padding:72px 0 80px;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(60px,12vw,128px);line-height:1;color:var(--gold);text-shadow:4px 4px 0 var(--red)}
-.hero h1 span{display:block;color:#fff;text-shadow:4px 4px 0 #0006}
-.hero p{max-width:480px;color:#e6d7ea;font-size:18px;margin:22px 0 28px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:12px 24px;border-radius:12px;font-weight:700;background:var(--gold);color:var(--ink)}
-.btn.o{background:none;border:2px solid #fff5;color:#fff}
-.stats{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
-.stats div{font-size:13px;color:#cdb8d3;line-height:1.4}.stats b{display:block;font:400 34px var(--f);color:#fff}
-#fan{position:relative;height:400px}
-#fan .slot{position:absolute;width:50%;top:10%;border:3px solid #fff4;box-shadow:0 24px 50px #0008}
-#fan .slot:nth-child(1){inset-inline-start:0;transform:rotate(-11deg)}
-#fan .slot:nth-child(2){inset-inline-start:25%;top:0;transform:rotate(2deg);z-index:2}
-#fan .slot:nth-child(3){inset-inline-start:50%;transform:rotate(13deg)}
-.slot{position:relative;aspect-ratio:2/3;border-radius:14px;overflow:hidden;display:grid;place-items:center;font-size:46px;background:linear-gradient(150deg,var(--c),#1e0f2399)}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-section{padding:76px 0}.alt{background:#fff}.dark{background:var(--ink);color:#fff}
-h2{font-size:clamp(34px,5vw,50px)}.sub{color:var(--mut);max-width:640px;margin:8px 0 34px}.dark .sub{color:#cdb8d3}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.rc{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:22px}.alt .rc{background:var(--bg)}
-.dark .rc{background:#2d1a33;border-color:#fff1}
-.rc i{font-style:normal;display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--c,var(--gold));font-size:24px;margin-bottom:12px}
-.rc h3{font-size:24px;margin-bottom:4px}.rc p{color:var(--mut);font-size:15px}.dark .rc p{color:#d6c4db}
-.rc.k{border-inline-start:6px solid var(--c)}
-.rc small{display:inline-block;margin-top:10px;padding:2px 12px;border-radius:99px;background:var(--c);color:var(--ink);font-weight:700;font-size:13px}
-ol{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:s}
-ol li{counter-increment:s;display:flex;gap:18px;align-items:flex-start;background:var(--bg);padding:20px 22px;border-radius:16px}
-ol li:before{content:counter(s);flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--gold);font:400 24px/44px var(--f);text-align:center}
-ol h3{font-size:24px}ol p{color:var(--mut)}
-.lv{display:flex;gap:8px}.lv div{padding:22px;border-radius:16px;color:var(--ink)}
-.lv b{font:400 44px/1.1 var(--f);display:block}.lv h3{font-size:22px}
-.note{background:var(--gold);color:var(--ink);border-radius:16px;padding:18px 22px;margin-bottom:20px;font-weight:600}
-.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
-.ct .slot{margin-bottom:12px}.ct h3{font-size:22px}.ct p{font-size:14px;color:var(--mut)}
-.times{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-.times div{flex:1;min-width:150px;background:var(--bg);border-radius:14px;padding:14px 20px;font-size:14px}
-.times b{font:400 40px/1.2 var(--f);display:block;color:var(--red)}
-[role=tablist]{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-[role=tab]{font:600 15px inherit;font-family:inherit;border:2px solid var(--ln);background:#fff;color:var(--tx);padding:9px 20px;border-radius:99px;cursor:pointer}
-[role=tab][aria-selected=true]{background:var(--c);border-color:var(--c);color:var(--ink)}
-[role=tabpanel]{background:var(--bg);border-radius:20px;padding:28px;border-top:6px solid var(--c)}
-[role=tabpanel] h3{font-size:30px;margin-bottom:6px}
-[role=tabpanel] ul{margin:12px 0;padding-inline-start:22px}[role=tabpanel] li{margin:6px 0}
-.no{background:#fde9eb;border-radius:12px;padding:12px 18px;margin:14px 0;color:#8c1d27}
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px}
-.cats div{display:flex;gap:14px;align-items:center;background:#fff;border-radius:14px;padding:12px}
-.cats .slot{width:64px;flex:none;font-size:26px}.cats p{font-size:14px;line-height:1.6}
-h3.g{font-size:28px;margin:34px 0 14px}.dark h3.g:first-of-type{margin-top:0}
-details{background:#fff;border:1px solid var(--ln);border-radius:14px;margin-bottom:10px}
-summary{padding:16px 22px;font-weight:700;cursor:pointer}details p{padding:0 22px 18px;color:var(--mut)}
-details[open]{border-color:var(--ink)}
-footer{background:var(--ink);color:#cdb8d3;text-align:center;padding:36px 0}footer b{font:400 28px var(--f);color:var(--gold);display:block}
-#sal{position:fixed;inset:0;z-index:99;background:var(--ink);color:var(--gold);display:grid;place-content:center;text-align:center;gap:8px;transition:opacity .8s;cursor:pointer}
-#sal.h{opacity:0;pointer-events:none}#sal b{font:400 clamp(32px,7vw,56px) var(--f)}#sal span{color:#e6d7ea}
-@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}#fan{height:340px}.lv{flex-direction:column}section{padding:56px 0}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1e0f23">
+  <meta name="description" content="الدليل الرسمي للعبة Z&O&M هبدieren: قواعد اللعب والكروت والتحديات.">
+  <title>Z&O&M هبدieren | دليل اللعبة</title>
+  <meta property="og:title" content="Z&O&M هبدieren | دليل اللعبة">
+  <meta property="og:description" content="العب | اضحك | اهبد. قواعد اللعبة كاملة.">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🎲%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lalezar&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================
+       style.css — تصميم دليل لعبة Z&O&M هبدieren
+       اللون الأساسي: --ink  |  الذهبي: --gold  |  الأحمر: --red
+       ========================================================== */
+
+    /* ===== Design tokens & base ===== */
+    :root {
+      --ink: #1e0f23;
+      --gold: #ffc83d;
+      --red: #e8404b;
+      --bg: #f5f1f7;
+      --tx: #2a1830;
+      --mut: #6d5a74;
+      --ln: #e2d8e8;
+      --f: 'Lalezar','IBM Plex Sans Arabic',sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 64px;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--tx);
+      font: 400 16px/1.9 'IBM Plex Sans Arabic',Tahoma,sans-serif;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: var(--f);
+      font-weight: 400;
+      margin: 0;
+      line-height: 1.25;
+    }
+    p {
+      margin: 0;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .wrap {
+      width: min(1100px,92%);
+      margin: auto;
+    }
+
+    /* ===== Navigation, progress bar, back-to-top ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--ink);
+      border-bottom: 1px solid #fff2;
+    }
+    nav .wrap {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      align-items: center;
+      min-height: 56px;
+    }
+    nav b {
+      font: 400 22px var(--f);
+      color: var(--gold);
+      margin-inline-end: 14px;
+      white-space: nowrap;
+    }
+    nav a {
+      color: #d9c9de;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    nav a:hover,
+    nav a.on {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: radial-gradient(circle at 85% 10%,#4a1c4f,transparent 55%),var(--ink);
+      color: #fff;
+      padding: 72px 0 80px;
+      overflow: hidden;
+    }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(60px,12vw,128px);
+      line-height: 1;
+      color: var(--gold);
+      text-shadow: 4px 4px 0 var(--red);
+    }
+    .hero h1 span {
+      display: block;
+      color: #fff;
+      text-shadow: 4px 4px 0 #0006;
+    }
+    .hero p {
+      max-width: 480px;
+      color: #e6d7ea;
+      font-size: 18px;
+      margin: 22px 0 28px;
+    }
+    .btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .btn.o {
+      background: none;
+      border: 2px solid #fff5;
+      color: #fff;
+    }
+    .stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+    .stats div {
+      font-size: 13px;
+      color: #cdb8d3;
+      line-height: 1.4;
+    }
+    .stats b {
+      display: block;
+      font: 400 34px var(--f);
+      color: #fff;
+    }
+    #fan {
+      position: relative;
+      height: 400px;
+    }
+    #fan .slot {
+      position: absolute;
+      width: 50%;
+      top: 10%;
+      border: 3px solid #fff4;
+      box-shadow: 0 24px 50px #0008;
+    }
+    #fan .slot:nth-child(1) {
+      inset-inline-start: 0;
+      transform: rotate(-11deg);
+    }
+    #fan .slot:nth-child(2) {
+      inset-inline-start: 25%;
+      top: 0;
+      transform: rotate(2deg);
+      z-index: 2;
+    }
+    #fan .slot:nth-child(3) {
+      inset-inline-start: 50%;
+      transform: rotate(13deg);
+    }
+
+    /* ===== Card slots (صور الكروت) ===== */
+    .slot {
+      position: relative;
+      aspect-ratio: 2/3;
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      font-size: 46px;
+      background: linear-gradient(150deg,var(--c),#1e0f2399);
+    }
+    .slot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== Sections & headings ===== */
+    section {
+      padding: 76px 0;
+    }
+    .alt {
+      background: #fff;
+    }
+    .dark {
+      background: var(--ink);
+      color: #fff;
+    }
+    h2 {
+      font-size: clamp(34px,5vw,50px);
+    }
+    .sub {
+      color: var(--mut);
+      max-width: 640px;
+      margin: 8px 0 34px;
+    }
+    .dark .sub {
+      color: #cdb8d3;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 16px;
+    }
+
+    /* ===== Rule cards ===== */
+    .rc {
+      background: #fff;
+      border: 1px solid var(--ln);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .alt .rc {
+      background: var(--bg);
+    }
+    .dark .rc {
+      background: #2d1a33;
+      border-color: #fff1;
+    }
+    .rc i {
+      font-style: normal;
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--c,var(--gold));
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .rc h3 {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .rc p {
+      color: var(--mut);
+      font-size: 15px;
+    }
+    .dark .rc p {
+      color: #d6c4db;
+    }
+    .rc.k {
+      border-inline-start: 6px solid var(--c);
+    }
+    .rc small {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 2px 12px;
+      border-radius: 99px;
+      background: var(--c);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* ===== Numbered steps ===== */
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+      counter-reset: s;
+    }
+    ol li {
+      counter-increment: s;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: var(--bg);
+      padding: 20px 22px;
+      border-radius: 16px;
+    }
+    ol li:before {
+      content: counter(s);
+      flex: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--gold);
+      font: 400 24px/44px var(--f);
+      text-align: center;
+    }
+    ol h3 {
+      font-size: 24px;
+    }
+    ol p {
+      color: var(--mut);
+    }
+
+    /* ===== Board levels & note ===== */
+    .lv {
+      display: flex;
+      gap: 8px;
+    }
+    .lv div {
+      padding: 22px;
+      border-radius: 16px;
+      color: var(--ink);
+    }
+    .lv b {
+      font: 400 44px/1.1 var(--f);
+      display: block;
+    }
+    .lv h3 {
+      font-size: 22px;
+    }
+    .note {
+      background: var(--gold);
+      color: var(--ink);
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+      gap: 14px;
+    }
+    .ct .slot {
+      margin-bottom: 12px;
+    }
+    .ct h3 {
+      font-size: 22px;
+    }
+    .ct p {
+      font-size: 14px;
+      color: var(--mut);
+    }
+
+    /* ===== Timings & challenge tabs ===== */
+    .times {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+    .times div {
+      flex: 1;
+      min-width: 150px;
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+    .times b {
+      font: 400 40px/1.2 var(--f);
+      display: block;
+      color: var(--red);
+    }
+    [role=tablist] {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    [role=tab] {
+      font: 600 15px inherit;
+      font-family: inherit;
+      border: 2px solid var(--ln);
+      background: #fff;
+      color: var(--tx);
+      padding: 9px 20px;
+      border-radius: 99px;
+      cursor: pointer;
+    }
+    [role=tab][aria-selected=true] {
+      background: var(--c);
+      border-color: var(--c);
+      color: var(--ink);
+    }
+    [role=tabpanel] {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 28px;
+      border-top: 6px solid var(--c);
+    }
+    [role=tabpanel] h3 {
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+    [role=tabpanel] ul {
+      margin: 12px 0;
+      padding-inline-start: 22px;
+    }
+    [role=tabpanel] li {
+      margin: 6px 0;
+    }
+    .no {
+      background: #fde9eb;
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin: 14px 0;
+      color: #8c1d27;
+    }
+    .cats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .cats div {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .cats .slot {
+      width: 64px;
+      flex: none;
+      font-size: 26px;
+    }
+    .cats p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ===== Gallery, FAQ, footer, splash ===== */
+    h3.g {
+      font-size: 28px;
+      margin: 34px 0 14px;
+    }
+    .dark h3.g:first-of-type {
+      margin-top: 0;
+    }
+    details {
+      background: #fff;
+      border: 1px solid var(--ln);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    summary {
+      padding: 16px 22px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    details p {
+      padding: 0 22px 18px;
+      color: var(--mut);
+    }
+    details[open] {
+      border-color: var(--ink);
+    }
+    footer {
+      background: var(--ink);
+      color: #cdb8d3;
+      text-align: center;
+      padding: 36px 0;
+    }
+    footer b {
+      font: 400 28px var(--f);
+      color: var(--gold);
+      display: block;
+    }
+    #sal {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--ink);
+      color: var(--gold);
+      display: grid;
+      place-content: center;
+      text-align: center;
+      gap: 8px;
+      transition: opacity .8s;
+      cursor: pointer;
+    }
+    #sal.h {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #sal b {
+      font: 400 clamp(32px,7vw,56px) var(--f);
+    }
+    #sal span {
+      color: #e6d7ea;
+    }
+    nav img {
+      height: 34px;
+      margin-inline-end: 8px;
+    }
+    #bar {
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      height: 3px;
+      background: var(--red);
+      transform-origin: right;
+      transform: scaleX(0);
+      z-index: 11;
+    }
+    #up {
+      position: fixed;
+      bottom: 20px;
+      inset-inline-start: 20px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: 0 8px 24px #0004;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+      z-index: 9;
+    }
+    #up.s {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .rc {
+      transition: transform .25s,box-shadow .25s;
+    }
+    .rc:hover,
+    .ct:hover .slot {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px #1e0f2326;
+    }
+    .ct .slot {
+      transition: transform .25s,box-shadow .25s;
+    }
+
+    /* ===== Board image slot ===== */
+    .bd {
+      position: relative;
+      margin: 0 0 24px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      border: 3px dashed var(--red);
+      aspect-ratio: 16/10;
+      display: grid;
+      place-items: center;
+      color: var(--mut);
+      text-align: center;
+    }
+    .bd span {
+      font-size: 52px;
+      display: block;
+    }
+    .bd small {
+      display: block;
+      direction: ltr;
+      opacity: .7;
+    }
+    .bd img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+    .bd.ok {
+      aspect-ratio: auto;
+      border: 0;
+      box-shadow: 0 20px 50px #1e0f2326;
+    }
+    .bd.ok img {
+      position: static;
+      height: auto;
+      display: block;
+    }
+    .bd.ok .ph {
+      display: none;
+    }
+    .tip {
+      background: #fff6d6;
+      border-radius: 12px;
+      padding: 10px 16px;
+      margin: 12px 0;
+    }
+
+    /* ===== Win calculator ===== */
+    .calc {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    #trk {
+      display: grid;
+      grid-template-columns: repeat(10,1fr);
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    #trk i {
+      font: 400 clamp(13px,2.4vw,20px)/1 var(--f);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: #4fd1a0;
+      color: var(--ink);
+      opacity: .5;
+      transition: .25s;
+    }
+    #trk i.m {
+      background: var(--gold);
+    }
+    #trk i.h {
+      background: #ff6b74;
+    }
+    #trk i.a {
+      opacity: 1;
+      transform: scale(1.15);
+      outline: 3px solid var(--ink);
+      z-index: 1;
+    }
+    .ctl {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .ctl input[type=range] {
+      accent-color: var(--red);
+      width: min(260px,100%);
+    }
+    .ctl select {
+      font: inherit;
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 2px solid var(--ln);
+    }
+    .res {
+      font-weight: 700;
+      font-size: 19px;
+      margin-top: 14px;
+      min-height: 34px;
+    }
+
+    /* ===== Print ===== */
+    @media print {
+      nav,
+      #sal,
+      #bar,
+      #up,
+      .btns,
+      #fan {
+        display: none!important;
+      }
+      .hero {
+        padding: 16px 0;
+        background: none;
+        color: #000;
+      }
+      .hero h1,
+      .hero h1 span {
+        color: #000;
+        text-shadow: none;
+      }
+      .hero p {
+        color: #000;
+      }
+      section {
+        padding: 18px 0;
+        break-inside: avoid;
+      }
+      .dark,
+      .dark .sub,
+      .dark .rc p {
+        background: none;
+        color: #000;
+      }
+      .dark .rc {
+        background: none;
+        border: 1px solid #999;
+      }
+      [role=tabpanel][hidden] {
+        display: block!important;
+      }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width:800px) {
+      .hero .wrap {
+        grid-template-columns: 1fr;
+      }
+      #fan {
+        height: 340px;
+      }
+      .lv {
+        flex-direction: column;
+      }
+      section {
+        padding: 56px 0;
+      }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        scroll-behavior: auto!important;
+        transition: none!important;
+      }
+    }
+    .bd .ph {
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--tx);
+    }
+    .bd .ph small {
+      font-weight: 400;
+      font-size: 14px;
+    }
+    .thumb {
+      width: 90px;
+      float: inline-start;
+      margin-inline-end: 16px;
+    }
+  </style>
 </head>
 <body>
-<div id="sal" role="button" aria-label="متابعة"><span>✦ ۞ ✦</span><b>صَلِّ على رسول الله ﷺ</b><span>اللهم صلِّ وسلم وبارك عليه</span></div>
+  <div id="sal" role="button" aria-label="متابعة"><span>✦ ۞ ✦</span><b>صَلِّ على رسول الله ﷺ</b><span>اللهم صلِّ وسلم وبارك عليه</span></div>
+  <div id="bar"></div>
+  <a id="up" href="#" aria-label="لفوق">↑</a>
+  <nav>
+    <div class="wrap">
+      <img src="images/logo.png" alt="" data-optional><b dir="ltr">Z&amp;O&amp;M</b>
+      <a href="#setup">التجهيز</a>
+      <a href="#play">اللعب</a>
+      <a href="#board">البورد</a>
+      <a href="#special">المربعات الخاصة</a>
+      <a href="#cards">الكروت</a>
+      <a href="#challenges">التحديات</a>
+      <a href="#helpers">المساعدة</a>
+      <a href="#surprise">عقاب ومكافأة</a>
+      <a href="#win">الفوز</a>
+      <a href="#faq">أسئلة</a>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <h1><span dir="ltr">Z&amp;O&amp;M</span>هبدieren</h1>
+        <p>العب | اضحك | اهبد. مش شرط تكون أذكى واحد؛ لازم تكون أسرع واحد وأشطر واحد في الوصف، والأهم تعرف تهبد في الوقت المناسب!</p>
+        <div class="btns">
+          <a class="btn" href="#setup">اقرأ القواعد</a>
+          <a class="btn o" href="#cards">شوف الكروت</a>
+          <a class="btn o" id="printBtn" href="#">🖨️ اطبع القواعد</a>
+        </div>
+        <div class="stats">
+          <div><b>2</b>لاعبين في كل فريق</div>
+          <div><b>4</b>فرق كحد أقصى</div>
+          <div><b>30</b>مربع، وأول واحد يوصل بالظبط يكسب</div>
+        </div>
+      </div>
+      <div id="fan" aria-hidden="true"></div>
+    </div>
+  </header>
+  <section id="setup">
+    <div class="wrap">
+      <h2>قبل ما تبدأوا</h2>
+      <p class="sub">اتفقوا على الفرق، حطّوا البورد قدامكم، وجهّزوا أكوام الكروت في أماكنها.</p>
+      <div class="grid">
+        <div class="rc">
+          <i>👥</i>
+          <h3>كل فريق شخصين</h3>
+          <p>الفريق لازم يتكوّن من شخصين بالضبط؛ لا أكتر ولا أقل.</p>
+        </div>
+        <div class="rc">
+          <i>🏁</i>
+          <h3>لحد 4 فرق</h3>
+          <p>اللعبة تستوعب بحد أقصى أربعة فرق، يعني من 4 لـ8 لاعيبة، وكل فريق ينافس عشان يوصل للنهاية الأول.</p>
+        </div>
+        <div class="rc">
+          <i>🃏</i>
+          <h3>أكوام كروت منفصلة</h3>
+          <p>كروت اممم في كومة منفصلة. كروت اقفش Pause والسرعة والـ Hint في كومة الأسئلة العادية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="play" class="alt">
+    <div class="wrap">
+      <h2>إزاي تلعبوا؟</h2>
+      <p class="sub">البورد فيه 30 مربع. اسحب كارت من كومة الأسئلة، نفّذ التحدي، ولو نجحت اتحرك بعدد النقط المكتوبة على الكارت.</p>
+      <ol>
+        <li>
+          <div>
+            <h3>اسحب كارت</h3>
+            <p>اسحب كارت من كومة الأسئلة العادية، ونفّذ التحدي حسب نوعه: اقفش Pause أو السرعة أو Hint.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>جاوب صح واتحرّك</h3>
+            <p>لو نجحت في التحدي، اتحرك بعدد النقط المكتوبة على الكارت. لو النقط أكتر من الخانات المتبقية للوصول للمربع 30، تفضل مكانك من غير حركة.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>وصل للمربع 30 الأول</h3>
+            <p>أول فريق يوصل للمربع 30 بالظبط هو الفائز: برافووو عليييك!</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>خلي الجرس قريب</h3>
+            <p>الجرس مهم في أسئلة السرعة والـ Hint، وأهم حاجة في كروت اقفش Pause، وكمان في تحدي اللازمة.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section id="board">
+    <div class="wrap">
+      <h2>رحلة الهبد على البورد</h2>
+      <p class="sub">البورد فيه 30 مربع متقسمين لـ3 مراحل، وكل مرحلة أصعب من اللي قبلها.</p>
+      <figure class="bd" id="boardSlot">
+        <div class="ph"><span aria-hidden="true">🗺️</span>مكان صورة البورد<small>images/board.jpg</small></div>
+      </figure>
+      <div class="lv">
+        <div style="flex:15;background:#4fd1a0">
+          <b dir="ltr">1–15</b>
+          <h3>المرحلة الأولى</h3>
+          لسه بنسخّن! الكلمات اللي الفريق المنافس بيختارهالك لازم تكون سهلة جدًا.
+        </div>
+        <div style="flex:10;background:var(--gold)">
+          <b dir="ltr">16–25</b>
+          <h3>المرحلة التانية</h3>
+          دخلنا في الجد! الكلمات هنا متوسطة، لا سهلة أوي ولا صعبة أوي.
+        </div>
+        <div style="flex:5;background:#ff6b74">
+          <b dir="ltr">26–30</b>
+          <h3>المرحلة التالتة</h3>
+          مفيش هزار! الكلمات صعبة، والخصم وشطارته بقى!
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="special" class="dark">
+    <div class="wrap">
+      <h2>المربعات الخاصة: الأرض مش دايمًا أمان!</h2>
+      <p class="sub">لو وقفت على مربع خاص، تحديه بيتنفّذ في دورك اللي بعده، مش فورًا.</p>
+      <div class="note">قاعدة مهمة: لو نسيت ومحدش من الفريق التاني نبهك، يبقا حلال عليك البراءة.</div>
+      <div class="grid">
+        <div class="rc k" style="--c:#f2b01e">
+          <h3>🎁 المكافأة</h3>
+          <p>استنى دورك الجاي، وبعدها اسحب كارت من كومة المكافآت ونفّذ المكتوب عليه. لو نسيت يبقا راح عليك مش بتاعتنا.</p>
+        </div>
+        <div class="rc k" style="--c:#e8404b">
+          <h3>😈 العقاب «دنت هتتدلع»</h3>
+          <p>استنى دورك الجاي، وبعدها اسحب كارت من كومة «دنت هتتدلع» ونفّذ العقاب. لو عملت نفسك من بنها ومحدش خد باله ونبهك يبقا مبروك عليك براءة.</p>
+        </div>
+        <div class="rc k" style="--c:#ff8a3d">
+          <h3>🔔 مربع اللازمة</h3>
+          <p>خصمك يختارلك لازمة (حركة أو صوت) وتعملها كل ما يدوس على الجرس خلال الجولة.</p>
+          <small>3 ضغطات فقط خلال الجولة</small>
+        </div>
+        <div class="rc k" style="--c:#9b6bff">
+          <h3>🤐 مربع اممم</h3>
+          <p>استنى دورك الجاي، واسحب كارت من كومة اممم المنفصلة، ومثّل لشريكك بإيدك وجسمك، بس من غير ما تفتح بوقك وتنطق كلمات واضحة: بوقك مقفول وكل كلامك «اممم». معاك 30 ثانية بس.</p>
+          <small>صح +2 خطوة، غلط −2 خطوة</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="cards">
+    <div class="wrap">
+      <h2>أنواع الكروت</h2>
+      <p class="sub">سبعة أنواع كروت، كل نوع له لون ثابت في الدليل كله.</p>
+      <div class="grid" id="cardGrid" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr))"></div>
+    </div>
+  </section>
+  <section id="challenges" class="alt">
+    <div class="wrap">
+      <h2>التحديات بالتفصيل</h2>
+      <p class="sub">الوقت بيجري… ركّز! كارت «براحة علينا» يلغي حد الوقت للسؤال المستخدم فيه.</p>
+      <div class="times">
+        <div><b>30</b>ثانية: وصف Pause العادي</div>
+        <div><b>5</b>ثوانٍ: سؤال السرعة بعد الجرس</div>
+        <div><b>30</b>ثانية: تمثيل اممم</div>
+      </div>
+      <div role="tablist" aria-label="التحديات"></div>
+      <div role="tabpanel" id="p-pause" style="--c:#e2559c">
+        <h3>اقفش Pause: وصف من غير Pause!</h3>
+        <p>الفريق المنافس هو اللي يختار الكلمة. وصّفها لشريكك بالكلام فقط ومن غير لغة جسد.</p>
+        <p class="tip">💡 كارت «فظيعة في العربي» بيلغي شرط الكلام بالألماني. والكروت دي منها اللي بنقطة ومنها اللي بنقطتين حسب الصعوبة.</p>
+        <div class="no">🚫 ممنوع: لغة الجسد أو الإشارات، أسماء الأشخاص، الدول أو الجنسيات، وأي أصوات تردد زي «آآه» أو «اممم» أو «ااا».</div>
+        <div class="cats">
+          <div>
+            <div class="slot" style="--c:#38a169">⚽<img src="images/pause-football.jpg" alt="" data-optional></div>
+            <p><b>كروت الكورة</b><br>الرمز أعلى يسار الكارت يحدد القيمة: ⚽ نقطة، ⚽⚽ نقطتان.</p>
+          </div>
+          <div>
+            <div class="slot" style="--c:#dd6b20">🍿<img src="images/pause-films.jpg" alt="" data-optional></div>
+            <p><b>كروت الأفلام</b><br>عدد أكياس الفشار هو النقاط: 🍿 نقطة، 🍿🍿 نقطتان.</p>
+          </div>
+          <div>
+            <div class="slot" style="--c:#d53f8c">🍹<img src="images/pause-cocktail.jpg" alt="" data-optional></div>
+            <p><b>كروت الكوكتيل</b><br>فئة متنوعة، مثل وصف وظيفة أو جهاز. 🍹 نقطة، 🍹🍹 نقطتان.</p>
+          </div>
+        </div>
+        <h3 style="font-size:22px;margin-top:22px">🛎️ لو الفريق المنافس قفشك</h3>
+        <p>لو عملت Pause أو قلت كلمة مش مسموحة أو استخدمت لغة جسد، الفريق المنافس يدوس الجرس. لو قفشك صح، النقط تروح له والسؤال يضيع عليك. لو الوقت خلص من غير إجابة صحيحة ومن غير مخالفة، محدش ياخد نقط.</p>
+      </div>
+      <div role="tabpanel" id="p-speed" style="--c:#ff8a3d" hidden>
+        <h3>كروت السرعة</h3>
+        <p>ارمِ كارت السرعة على البورد فور ظهوره. أول فريق يدوس الجرس له حق الإجابة خلال 5 ثوانٍ. كل أسئلة السرعة بنقطة واحدة.</p>
+        <ul>
+          <li><b>فريقين:</b> الإجابة الصح تكسبك النقطة، والغلط يديها للفريق التاني.</li>
+          <li><b>3 أو 4 فرق:</b> الغلط ينقل الفرصة لباقي الفرق؛ أي فريق يقدر يدوس ويجاوب صح ويسرق النقطة.</li>
+          <li>لو محدش جاوب صح، بنعدّي السؤال ومحدش ياخد نقط.</li>
+          <li>مش معنى إن أول فريق غلط إن السؤال خلص، لسه فيه فرصة تسرق النقطة!</li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-hint" style="--c:#19b5a5" hidden>
+        <h3>كروت الـ Hint</h3>
+        <p>كروت نادرة قيمتها نقطتان، ومحتاجة تركيز في اختيار التلميح.</p>
+        <ul>
+          <li><b>اختاروا كلمة من الفئة:</b> شخص من كل فريق يتفق مع الآخر على كلمة حسب فئة السؤال، مثل الكورة أو الكوكتيل.</li>
+          <li><b>تلميح بكلمة واحدة:</b> قرّب الكلمة لفريقك بكلمة واحدة فقط.</li>
+          <li><b>اعرفها واضغط الجرس:</b> اللاعب اللي عرف الكلمة لازم يدوس على الجرس ويقولها وإلا مش هتتحسب. الفريق المنافس ممكن يضغط الجرس ويجاوب وياخدها على الجاهز.</li>
+        </ul>
+        <div class="no">🚫 ممنوع: الجنسيات أو الدول، التواريخ، أسماء الأشخاص، أو الوصف بأكتر من كلمة. لو حصلت مخالفة، الفريق الثاني له الحق يقول «هينتين» ورا بعض.</div>
+      </div>
+      <div role="tabpanel" id="p-umm" style="--c:#9b6bff" hidden>
+        <h3>اممم وبس</h3>
+        <p>بعد الوقوف على مربع اممم، استنى دورك الجاي واسحب كارت من كومتها المنفصلة. مثّل لشريكك باستخدام إيدك وجسمك، من غير كلمات واضحة؛ بوقك يفضل مقفول وكل اللي تطلعه «اممم». معاك 30 ثانية، والكارت دائمًا بنقطتين.</p>
+        <ul>
+          <li><b>صح:</b> +2 خطوة.</li>
+          <li><b>غلط:</b> −2 خطوة.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="helpers">
+    <div class="wrap">
+      <h2>كروت المساعدة: 8 كروت</h2>
+      <p class="sub">في بداية الجيم، الكروت الثمانية بتتخلط وتتوزع عشوائيًا وبالتساوي قدر الإمكان حسب عدد الفرق.</p>
+      <div class="grid" id="helperGrid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr))"></div>
+    </div>
+  </section>
+  <section id="surprise" class="dark">
+    <div class="wrap">
+      <h2>كروت العقاب والمكافأة</h2>
+      <p class="sub">ثمانية كروت لكل نوع، بتتسحب من المربعات الخاصة.</p>
+      <h3 class="g">😈 كروت العقاب «دنت هتتدلع»: 8 كروت</h3>
+      <div class="slots" id="penGrid"></div>
+      <h3 class="g">🏆 كروت المكافأة: 8 كروت</h3>
+      <div class="slots" id="rewGrid"></div>
+    </div>
+  </section>
+  <section id="win" class="alt">
+    <div class="wrap">
+      <h2>مين اللي بيكسب؟</h2>
+      <p class="sub">أول فريق يوصل للمربع 30 بالظبط هو اللي بيكسب. أي فريق يكسب نقط أكتر من الخانات المتبقية بيفضل مكانه. جرّب بنفسك:</p>
+      <div class="calc">
+        <div id="trk"></div>
+        <div class="ctl">
+          <label>فريقك واقف على المربع <b id="sq"></b> <input id="cur" type="range" min="1" max="29" value="29"></label>
+          <label>
+            وكسبت
+            <select id="pts">
+              <option>1</option>
+              <option selected>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+            نقط
+          </label>
+        </div>
+        <p class="res" id="res" aria-live="polite"></p>
+      </div>
+      <div class="grid">
+        <div class="rc">
+          <i>🏆</i>
+          <h3>28 + نقطتين</h3>
+          <p>مبروك، وصلت للـ30!</p>
+        </div>
+        <div class="rc">
+          <i>🎉</i>
+          <h3>29 + نقطة</h3>
+          <p>برافووو عليييك!</p>
+        </div>
+        <div class="rc">
+          <i>⏳</i>
+          <h3>29 + نقطتين</h3>
+          <p>مش هتتحرك وهتفضل على 29 لحد ما تكسب سؤال بنقطة واحدة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="faq">
+    <div class="wrap">
+      <h2>ملخص القواعد</h2>
+      <p class="sub">أهم النقاط في مكان واحد.</p>
+      <details>
+        <summary>إمتى أتحرك على البورد؟</summary>
+        <p>لو جاوبت صح، فريقك يتحرك بعدد نقاط الكارت، بشرط ما تتخطاش المربع 30.</p>
+      </details>
+      <details>
+        <summary>إزاي نكسب؟</summary>
+        <p>أول فريق يوصل للمربع 30 بالظبط هو الفائز. لو النقط هتعدّيك عن المربع 30، تفضل في مكانك.</p>
+      </details>
+      <details>
+        <summary>لازم أوصل للمربع 30 بالظبط؟</summary>
+        <p>أيوه. مثال: لو أنت على 29 وكسبت نقطتين، مش هتتحرك لحد ما تكسب سؤال بنقطة واحدة.</p>
+      </details>
+      <details>
+        <summary>إيه قواعد اممم؟</summary>
+        <p>في دورك التالي بعد الوقوف على مربع اممم، اسحب من كومتها المنفصلة ومثّل خلال 30 ثانية. صح = تتقدم خانتين، غلط = ترجع خانتين.</p>
+      </details>
+      <details>
+        <summary>إيه قواعد Pause؟</summary>
+        <p>وصف بالكلام فقط، من غير لغة جسد أو جنسيات أو دول أو أسماء أشخاص أو أصوات تردد. الفريق المنافس يختار الكلمة، ولو قفشها يدوس الجرس وياخد النقطة ويضيع السؤال على الفريق الموصّف.</p>
+      </details>
+      <details>
+        <summary>إيه مراحل البورد؟</summary>
+        <p>المربعات <bdi dir="ltr">1–15</bdi> كلمات سهلة جدًا، <bdi dir="ltr">16–25</bdi> كلمات متوسطة، و<bdi dir="ltr">26–30</bdi> كلمات صعبة.</p>
+      </details>
+      <details>
+        <summary>كام لاعب وكم فريق؟</summary>
+        <p>كل فريق مكوّن من شخصين بالضبط، والحد الأقصى أربعة فرق.</p>
+      </details>
+    </div>
+  </section>
+  <section style="background:var(--gold);color:var(--ink);text-align:center;padding:52px 0">
+    <div class="wrap">
+      <h2>إنت دلوقتي جاهز تهبد… يلا! 🔥</h2>
+      <p style="margin-top:8px;font-weight:600">براڤووو عليييك! 🎉</p>
+    </div>
+  </section>
+  <footer><b dir="ltr">Z&amp;O&amp;M هبدieren</b>دليل اللعبة · العب | اضحك | اهبد</footer>
+  <script>
+    /* ==========================================================
+       data.js — محتوى الكروت (عدّل النصوص من هنا بسهولة)
+       ========================================================== */
 
-<nav><div class="wrap"><b dir="ltr">Z&amp;O&amp;M</b>
-<a href="#setup">التجهيز</a><a href="#play">اللعب</a><a href="#board">البورد</a><a href="#special">المربعات الخاصة</a><a href="#cards">الكروت</a><a href="#challenges">التحديات</a><a href="#helpers">المساعدة</a><a href="#surprise">عقاب ومكافأة</a><a href="#faq">أسئلة</a></div></nav>
+    /* أنواع الكروت: الصورة تتحمّل من images/ */
+    const CARDS = [
+      { icon: '😈', name: 'العقاب «دنت هتتدلع»', color: '#e8404b', text: 'يعرقل فريقك ويدي أفضلية للخصم.', image: 'card-back-punishment.jpg' },
+      { icon: '🏆', name: 'المكافأة', color: '#f2b01e', text: 'مكافآت تساعد الفريق على التقدّم في البورد.', image: 'card-back-reward.jpg' },
+      { icon: '🤐', name: 'اممم وبس', color: '#9b6bff', text: 'تمثيل من غير كلام، مع السماح بلغة الجسد. دائمًا بنقطتين.', image: 'card-back-umm.jpg' },
+      { icon: '🆘', name: 'الحقونا — مساعدة', color: '#3fa7f0', text: '8 كروت مساعدة بيتوزعوا عشوائي على كل فريق.', image: 'card-back-helper.jpg' },
+      { icon: '💡', name: 'Hint', color: '#19b5a5', text: 'تلميح بكلمة واحدة فقط، وقيمته نقطتان.', image: 'card-back-hint.jpg' },
+      { icon: '🔔', name: 'السرعة', color: '#ff8a3d', text: 'نقطة واحدة. أول فريق يضغط الجرس يجاوب.', image: 'card-back-speed.jpg' },
+      { icon: '⏸️', name: 'اقفش Pause', color: '#e2559c', text: 'وصف بالكلام فقط بدون أي لغة جسد؛ السؤال يختاره الفريق المنافس.', image: 'card-back-pause.jpg' }
+    ];
 
-<header class="hero"><div class="wrap">
-<div>
-<h1><span dir="ltr">Z&amp;O&amp;M</span>هبدieren</h1>
-<p>العب | اضحك | اهبد. مش شرط تكون أذكى واحد؛ لازم تكون أسرع واحد وأشطر واحد في الوصف، والأهم تعرف تهبد في الوقت المناسب!</p>
-<div class="btns"><a class="btn" href="#setup">اقرأ القواعد</a><a class="btn o" href="#cards">شوف الكروت</a></div>
-<div class="stats"><div><b>2</b>لاعبين في كل فريق</div><div><b>4</b>فرق كحد أقصى</div><div><b>20</b>مربع، وأول واحد يوصل يكسب</div></div>
-</div>
-<div id="fan" aria-hidden="true"></div>
-</div></header>
+    /* كروت المساعدات الثمانية: الصور helper-01.jpg … helper-08.jpg */
+    const HELPERS = [
+      {
+        icon: '🆘',
+        name: 'الحقني يا صاحبي',
+        tagline: 'لما الدنيا تقفل في وشك، صاحبك موجود!',
+        text: 'في أسئلة السرعة لو عطلت، شريكك يكمل معاك. وفي كروت الهينت، صاحبك يديك هينت زيادة لمدة جولتين: إجمالي 4 هينتات خلال الجولتين.'
+      },
+      {
+        icon: '😈',
+        name: 'لبس',
+        tagline: 'السؤال صعب ومش عاجبك؟ لبّسه للفريق التاني!',
+        text: 'تنقل أي سؤال للفريق المنافس مهما كان نوعه. سؤال عادي: يكسب نقاطه لو جاوب صح. كارت «اممم»: لو جاوب صح يتقدم خانتين، ولو غلط إنت اللي تتقدم خانتين.'
+      },
+      {
+        icon: '🥷',
+        name: 'الحرامي',
+        tagline: 'مش كل اللي بيتسرق فلوس!',
+        text: 'تسرق سؤال الفريق المنافس قبل ما يعرف الكلمة اللي المفروض يوصفها.'
+      },
+      {
+        icon: '🇪🇬',
+        name: 'فظيعة في العربي',
+        tagline: 'الألماني خد إجازة!',
+        text: 'تلغي شرط الكلام بالألماني وتوصف بالعربي براحتك، مع استمرار منع أسماء الأشخاص والدول والجنسيات ولغة الجسد.'
+      },
+      {
+        icon: '🔄',
+        name: 'غيّر السؤال',
+        tagline: 'السؤال مش داخل دماغك؟ غيّره!',
+        text: 'تبدّل السؤال اللي جالك بسؤال من أي فئة.'
+      },
+      {
+        icon: '🔥',
+        name: 'يا تصيب يا تخيب',
+        tagline: 'NO RISK, NO FUN!',
+        text: 'بتضاعف قيمة السؤال: سؤال بنقطتين يبقى بـ4. جاوبت صح تتقدم ضعف النقط، جاوبت غلط ترجع ضعف النقط.'
+      },
+      {
+        icon: '🛑',
+        name: 'اقف عندك',
+        tagline: 'إنت هتلعب وهو هيتفرج!',
+        text: 'بتعطّل الفريق المنافس عن الإجابة، وتلعب جولتين ورا بعض.'
+      },
+      {
+        icon: '⏳',
+        name: 'براحة علينا',
+        tagline: 'الوقت خلص؟ لا يا عم، إحنا بنلغي الوقت!',
+        text: 'تجاوب براحتك من غير ما تتقيد بالوقت المعتاد.'
+      }
+    ];
+    </script>
+  <script>
+    /* ==========================================================
+       main.js — سلوك الصفحة
+       يعتمد على data.js (لازم يتحمّل قبله)
+       ========================================================== */
 
-<section id="setup"><div class="wrap">
-<h2>قبل ما تبدأوا</h2><p class="sub">اتفقوا على الفرق، حطّوا البورد قدامكم، وجهّزوا أكوام الكروت في أماكنها.</p>
-<div class="grid">
-<div class="rc"><i>👥</i><h3>كل فريق شخصين</h3><p>الفريق لازم يتكوّن من شخصين بالضبط؛ لا أكتر ولا أقل.</p></div>
-<div class="rc"><i>🏁</i><h3>لحد 4 فرق</h3><p>اللعبة تستوعب بحد أقصى أربعة فرق، وكل فريق ينافس عشان يوصل للنهاية الأول.</p></div>
-<div class="rc"><i>🃏</i><h3>أكوام كروت منفصلة</h3><p>كروت اممم في كومة منفصلة. كروت اقفش Pause والسرعة والـ Hint في كومة الأسئلة العادية.</p></div>
-</div></div></section>
+    const $  = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+    const pad = index => String(index + 1).padStart(2, '0');
 
-<section id="play" class="alt"><div class="wrap">
-<h2>إزاي تلعبوا؟</h2><p class="sub">اسحب كارت من كومة الأسئلة، نفّذ التحدي، ولو نجحت اتحرك بعدد النقط المكتوبة على الكارت.</p>
-<ol>
-<li><div><h3>اسحب كارت</h3><p>اسحب كارت من كومة الأسئلة العادية، ونفّذ التحدي حسب نوعه: اقفش Pause أو السرعة أو Hint.</p></div></li>
-<li><div><h3>جاوب صح واتحرّك</h3><p>لو نجحت في التحدي، اتحرك بعدد النقط المكتوبة على الكارت. لو النقط أكتر من الخانات المتبقية للوصول للمربع 20، تفضل مكانك من غير حركة. مثال: لو أنت على 19 وكسبت نقطتين، مش هتتحرك لحد ما تكسب سؤال بنقطة واحدة.</p></div></li>
-<li><div><h3>وصل للمربع 20 الأول</h3><p>أول فريق يوصل للمربع 20 بالظبط هو الفائز: برافووو عليييك!</p></div></li>
-<li><div><h3>خلي الجرس قريب</h3><p>الجرس مهم في أسئلة السرعة والـ Hint، وأهم حاجة في كروت اقفش Pause، وكمان في تحدي اللازمة.</p></div></li>
-</ol></div></section>
+    /* ---------- 1) كارت بصورة (لو الصورة مش موجودة يظهر لون + أيقونة) ---------- */
+    function slot(image, icon, color, alt = '') {
+      return `
+        <div class="slot" style="--c:${color}">
+          ${icon}
+          <img src="images/${image}" alt="${alt}" loading="lazy" data-optional>
+        </div>`;
+    }
 
-<section id="board"><div class="wrap">
-<h2>البورد 3 مراحل</h2><p class="sub">كل ما تقرب من النهاية، مستوى الكلمات يزيد. اختاروا كلمات تناسب المرحلة اللي واقفين فيها.</p>
-<div class="lv">
-<div style="flex:10;background:#4fd1a0"><b>1–10</b><h3>مرحلة البداية</h3>كلمات سهلة جدًا</div>
-<div style="flex:5;background:var(--gold)"><b>11–15</b><h3>المرحلة المتوسطة</h3>كلمات متوسطة</div>
-<div style="flex:5;background:#ff6b74"><b>16–20</b><h3>المرحلة الأخيرة</h3>كلمات صعبة، ورّينا شطارتك!</div>
-</div></div></section>
+    /* ---------- 2) رسم الأقسام من data.js ---------- */
+    function renderHero() {
+      $('#fan').innerHTML = CARDS.slice(0, 3)
+        .map(card => slot(card.image, card.icon, card.color))
+        .join('');
+    }
 
-<section id="special" class="dark"><div class="wrap">
-<h2>المربعات الخاصة: الأرض مش دايمًا أمان!</h2><p class="sub">لو وقفت على مربع خاص، تحديه بيتنفّذ في دورك اللي بعده، مش فورًا.</p>
-<div class="note">قاعدة مهمة: لو نسيت ومحدش من الفريق التاني نبهك، يبقا حلال عليك البراءة.</div>
-<div class="grid">
-<div class="rc k" style="--c:#f2b01e"><h3>🎁 المكافأة</h3><p>استنى دورك الجاي، وبعدها اسحب كارت من كومة المكافآت ونفّذ المكتوب عليه. لو نسيت يبقا راح عليك مش بتاعتنا.</p></div>
-<div class="rc k" style="--c:#e8404b"><h3>😈 العقاب «دنت هتتدلع»</h3><p>استنى دورك الجاي، وبعدها اسحب كارت من كومة «دنت هتتدلع» ونفّذ العقاب. لو عملت نفسك من بنها ومحدش خد باله ونبهك يبقا مبروك عليك براءة.</p></div>
-<div class="rc k" style="--c:#ff8a3d"><h3>🔔 مربع اللازمة</h3><p>الفريق المنافس يختارلك لازمة (حركة أو صوت) تعملها لما يدوس على الجرس.</p><small>3 ضغطات فقط خلال الجولة</small></div>
-<div class="rc k" style="--c:#9b6bff"><h3>🤐 مربع اممم</h3><p>استنى دورك الجاي، واسحب كارت من كومة اممم المنفصلة، ومثّل لشريكك من غير كلمات واضحة. معاك 30 ثانية.</p><small>صح +2 خطوة، غلط −2 خطوة</small></div>
-</div></div></section>
+    function renderCards() {
+      $('#cardGrid').innerHTML = CARDS.map(card => `
+        <article class="ct">
+          ${slot(card.image, card.icon, card.color, card.name)}
+          <h3>${card.name}</h3>
+          <p>${card.text}</p>
+        </article>`).join('');
+    }
 
-<section id="cards"><div class="wrap">
-<h2>أنواع الكروت</h2><p class="sub">سبعة أنواع كروت، كل نوع له لون ثابت في الدليل كله.</p>
-<div class="grid" id="cardGrid" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr))"></div>
-</div></section>
+    function renderHelpers() {
+      $('#helperGrid').innerHTML = HELPERS.map((helper, i) => `
+        <article class="rc k" style="--c:#3fa7f0">
+          <div class="thumb">${slot(`helper-${pad(i)}.jpg`, helper.icon, '#3fa7f0', helper.name)}</div>
+          <h3>${helper.name}</h3>
+          <p><b>${helper.tagline}</b><br>${helper.text}</p>
+        </article>`).join('');
+    }
 
-<section id="challenges" class="alt"><div class="wrap">
-<h2>التحديات بالتفصيل</h2><p class="sub">الوقت بيجري… ركّز! كارت «براحة علينا» يلغي حد الوقت للسؤال المستخدم فيه.</p>
-<div class="times"><div><b>30</b>ثانية: وصف Pause العادي</div><div><b>5</b>ثوانٍ: سؤال السرعة بعد الجرس</div><div><b>30</b>ثانية: تمثيل اممم</div></div>
-<div role="tablist" aria-label="التحديات"></div>
+    function renderGallery(selector, prefix, icon, color, label) {
+      $(selector).innerHTML = Array.from({ length: 8 }, (_, i) =>
+        slot(`${prefix}-${pad(i)}.jpg`, icon, color, `${label} ${i + 1}`)
+      ).join('');
+    }
 
-<div role="tabpanel" id="p-pause" style="--c:#e2559c">
-<h3>اقفش Pause: وصف من غير Pause!</h3>
-<p>الفريق المنافس هو اللي يختار الكلمة. وصّفها لشريكك بالكلام فقط ومن غير لغة جسد.</p>
-<div class="no">🚫 ممنوع: لغة الجسد أو الإشارات، أسماء الأشخاص، الدول أو الجنسيات، وأي أصوات تردد زي «آآه» أو «اممم» أو «ااا».</div>
-<div class="cats">
-<div><div class="slot" style="--c:#38a169">⚽<img src="images/pause-football.jpg" alt="" onerror="this.remove()"></div><p><b>كروت الكورة</b><br>الرمز أعلى يسار الكارت يحدد القيمة: ⚽ نقطة، ⚽⚽ نقطتان.</p></div>
-<div><div class="slot" style="--c:#dd6b20">🍿<img src="images/pause-films.jpg" alt="" onerror="this.remove()"></div><p><b>كروت الأفلام</b><br>عدد أكياس الفشار هو النقاط: 🍿 نقطة، 🍿🍿 نقطتان.</p></div>
-<div><div class="slot" style="--c:#d53f8c">🍹<img src="images/pause-cocktail.jpg" alt="" onerror="this.remove()"></div><p><b>كروت الكوكتيل</b><br>فئة متنوعة، مثل وصف وظيفة أو جهاز. 🍹 نقطة، 🍹🍹 نقطتان.</p></div>
-</div>
-<h3 style="font-size:22px;margin-top:22px">🛎️ لو الفريق المنافس قفشك</h3>
-<p>لو عملت Pause أو قلت كلمة مش مسموحة أو استخدمت لغة جسد، الفريق المنافس يدوس الجرس. لو قفشك صح، النقط تروح له والسؤال يضيع عليك. لو الوقت خلص من غير إجابة صحيحة ومن غير مخالفة، محدش ياخد نقط.</p></div>
+    /* ---------- 3) صورة البورد: بنجرّب أكتر من اسم، ولو مفيش يفضل المكان ظاهر ---------- */
+    function initBoardImage() {
+      const figure = $('#boardSlot');
+      const candidates = [
+        'images/board.jpg?v=2', 'images/board.png', 'images/board.jpeg', 'images/board.webp',
+        'images/Board.jpg', 'images/Board.png'
+      ];
 
-<div role="tabpanel" id="p-speed" style="--c:#ff8a3d" hidden>
-<h3>كروت السرعة</h3>
-<p>ارمِ كارت السرعة على البورد فور ظهوره. أول فريق يدوس الجرس له حق الإجابة خلال 5 ثوانٍ. كل أسئلة السرعة بنقطة واحدة.</p>
-<ul><li><b>فريقين:</b> الإجابة الصح تكسبك النقطة، والغلط يديها للفريق التاني.</li>
-<li><b>3 أو 4 فرق:</b> الغلط ينقل الفرصة لباقي الفرق؛ أي فريق يقدر يدوس ويجاوب صح ويسرق النقطة.</li>
-<li>لو محدش جاوب صح، محدش ياخد نقط.</li></ul></div>
+      const tryNext = index => {
+        if (index >= candidates.length) return;          // مفيش صورة: المكان الفاضي يفضل ظاهر
+        const img = new Image();
+        img.alt = 'صورة البورد';
+        img.onload = () => {
+          figure.appendChild(img);
+          figure.classList.add('ok');
+        };
+        img.onerror = () => tryNext(index + 1);
+        img.src = candidates[index];
+      };
+      tryNext(0);
+    }
 
-<div role="tabpanel" id="p-hint" style="--c:#19b5a5" hidden>
-<h3>كروت الـ Hint</h3>
-<p>كروت نادرة قيمتها نقطتان، ومحتاجة تركيز في اختيار التلميح.</p>
-<ul><li><b>اختاروا كلمة من الفئة:</b> شخص من كل فريق يتفق مع الآخر على كلمة حسب فئة السؤال، مثل الكورة أو الكوكتيل.</li>
-<li><b>تلميح بكلمة واحدة:</b> قرّب الكلمة لفريقك بكلمة واحدة فقط.</li>
-<li><b>اعرفها واضغط الجرس:</b> اللاعب اللي عرف الكلمة لازم يدوس على الجرس ويقولها وإلا مش هتتحسب. الفريق المنافس ممكن يضغط الجرس ويجاوب وياخدها على الجاهز.</li></ul>
-<div class="no">🚫 ممنوع: الجنسيات أو الدول، التواريخ، أسماء الأشخاص، أو الوصف بأكتر من كلمة. لو حصلت مخالفة، الفريق الثاني له الحق يقول «هينتين» ورا بعض.</div></div>
+    /* ---------- 4) التابات (التحديات) ---------- */
+    function initTabs() {
+      const list   = $('[role=tablist]');
+      const panels = $$('[role=tabpanel]');
+      const titles = ['اقفش Pause', 'السرعة', 'Hint', 'اممم'];
 
-<div role="tabpanel" id="p-umm" style="--c:#9b6bff" hidden>
-<h3>اممم وبس</h3>
-<p>بعد الوقوف على مربع اممم، استنى دورك الجاي واسحب كارت من كومتها المنفصلة. مثّل لشريكك باستخدام إيدك وجسمك، من غير كلمات واضحة؛ بوقك يفضل مقفول وكل اللي تطلعه «اممم». معاك 30 ثانية، والكارت دائمًا بنقطتين.</p>
-<ul><li><b>صح:</b> +2 خطوة.</li><li><b>غلط:</b> −2 خطوة.</li></ul></div>
-</div></section>
+      const show = active => {
+        $$('[role=tab]', list).forEach((tab, i) => tab.setAttribute('aria-selected', i === active));
+        panels.forEach((panel, i) => { panel.hidden = i !== active; });
+      };
 
-<section id="helpers"><div class="wrap">
-<h2>كروت المساعدة: 8 كروت</h2><p class="sub">في بداية الجيم، الكروت الثمانية بتتخلط وتتوزع عشوائيًا وبالتساوي قدر الإمكان حسب عدد الفرق.</p>
-<div class="grid" id="helperGrid" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr))"></div>
-</div></section>
+      titles.forEach((title, i) => {
+        const tab = document.createElement('button');
+        tab.setAttribute('role', 'tab');
+        tab.textContent = title;
+        tab.style.setProperty('--c', panels[i].style.getPropertyValue('--c'));
+        tab.addEventListener('click', () => show(i));
+        list.append(tab);
+      });
+      show(0);
+    }
 
-<section id="surprise" class="dark"><div class="wrap">
-<h2>كروت العقاب والمكافأة</h2><p class="sub">ثمانية كروت لكل نوع، بتتسحب من المربعات الخاصة.</p>
-<h3 class="g">😈 كروت العقاب «دنت هتتدلع»: 8 كروت</h3><div class="slots" id="penGrid"></div>
-<h3 class="g">🏆 كروت المكافأة: 8 كروت</h3><div class="slots" id="rewGrid"></div>
-</div></section>
+    /* ---------- 5) حاسبة الحركة (قسم "مين اللي بيكسب؟") ---------- */
+    function initCalculator() {
+      const FINISH  = 30;
+      const track   = $('#trk');
+      const current = $('#cur');
+      const points  = $('#pts');
 
-<section id="faq"><div class="wrap">
-<h2>ملخص القواعد</h2><p class="sub">أهم النقاط في مكان واحد.</p>
-<details><summary>إمتى أتحرك على البورد؟</summary><p>لو جاوبت صح، فريقك يتحرك بعدد نقاط الكارت، بشرط ما تتخطاش المربع 20.</p></details>
-<details><summary>إزاي نكسب؟</summary><p>أول فريق يوصل للمربع 20 بالظبط هو الفائز. لو النقط هتعدّيك عن المربع 20، تفضل في مكانك.</p></details>
-<details><summary>لازم أوصل للمربع 20 بالظبط؟</summary><p>أيوه. مثال: لو أنت على 19 وكسبت نقطتين، مش هتتحرك لحد ما تكسب سؤال بنقطة واحدة.</p></details>
-<details><summary>إيه قواعد اممم؟</summary><p>في دورك التالي بعد الوقوف على مربع اممم، اسحب من كومتها المنفصلة ومثّل خلال 30 ثانية. صح = تتقدم خانتين، غلط = ترجع خانتين.</p></details>
-<details><summary>إيه قواعد Pause؟</summary><p>وصف بالكلام فقط، من غير لغة جسد أو جنسيات أو دول أو أسماء أشخاص أو أصوات تردد. الفريق المنافس يختار الكلمة، ولو قفشها يدوس الجرس وياخد النقطة ويضيع السؤال على الفريق الموصّف.</p></details>
-<details><summary>إيه مراحل البورد؟</summary><p>المربعات 1–10 كلمات سهلة جدًا، 11–15 كلمات متوسطة، و16–20 كلمات صعبة.</p></details>
-<details><summary>كام لاعب وكم فريق؟</summary><p>كل فريق مكوّن من شخصين بالضبط، والحد الأقصى أربعة فرق.</p></details>
-</div></section>
+      track.innerHTML = Array.from({ length: FINISH }, (_, i) => {
+        const level = i < 15 ? '' : i < 25 ? 'm' : 'h';
+        return `<i class="${level}">${i + 1}</i>`;
+      }).join('');
 
-<footer><b dir="ltr">Z&amp;O&amp;M هبدieren</b>دليل اللعبة · العب | اضحك | اهبد</footer>
+      const update = () => {
+        const from = +current.value;
+        const to   = from + +points.value;
+        const left = FINISH - from;
 
-<script>
-const $=s=>document.querySelector(s),slot=(img,ic,c,t='')=>`<div class="slot" style="--c:${c}">${ic}<img src="images/${img}" alt="${t}" loading="lazy" onerror="this.remove()"></div>`;
-const cards=[['😈','العقاب «دنت هتتدلع»','#e8404b','يعرقل فريقك ويدي أفضلية للخصم.','card-back-punishment'],['🏆','المكافأة','#f2b01e','مكافآت تساعد الفريق على التقدّم في البورد.','card-back-reward'],['🤐','اممم وبس','#9b6bff','تمثيل من غير كلام، مع السماح بلغة الجسد. دائمًا بنقطتين.','card-back-umm'],['🆘','الحقونا — مساعدة','#3fa7f0','8 كروت مساعدة بيتوزعوا عشوائي على كل فريق.','card-back-helper'],['💡','Hint','#19b5a5','تلميح بكلمة واحدة فقط، وقيمته نقطتان.','card-back-hint'],['🔔','السرعة','#ff8a3d','نقطة واحدة. أول فريق يضغط الجرس يجاوب.','card-back-speed'],['⏸️','اقفش Pause','#e2559c','وصف بالكلام فقط بدون أي لغة جسد؛ السؤال يختاره الفريق المنافس.','card-back-pause']];
-const helpers=[['🆘','الحقني يا صاحبي','في أسئلة السرعة، لو اتعطلت تقدر تطلب من صاحبك يكمل معاك. وفي كروت الـ Hint، صاحبك يديك تلميحًا إضافيًا لمدة جولتين: إجمالي 4 تلميحات خلال الجولتين.'],['🎭','لبس','يسمح لك بتمرير كارت السؤال الذي سحبته إلى الفريق الآخر إذا شعرت أنه صعب. لو كان كارتًا عاديًا، يحصل الفريق الآخر على نقاطه. لو كان كارت «اممم»، لو جاوبوا صح يتقدموا خانتين، ولو أخطأوا فريقك أنت يتقدم خانتين.'],['🦹','الحرامي','يسمح لك بسرقة السؤال من الفريق المقابل قبل أن تقول له الكلمة التي سيصفها.'],['🗣️','فظيعة في العربي','يعفيك من التحدث بالألمانية ويسمح لك بالوصف بالعربية براحتك، مع استمرار منع لغة الجسد وأسماء الأشخاص والدول والجنسيات.'],['🔄','غيّر السؤال','يسمح لك بتغيير السؤال إلى سؤال آخر من أي فئة.'],['🎲','يا تصيب يا تخيب','يضاعف نقاط السؤال ومقدار الحركة في الحالتين: لو أجبت صح تتحرك ضعف النقاط، ولو أخطأت ترجع ضعف النقاط. سؤال بنقطتين يصبح بأربع نقاط.'],['🛑','اقف عندك','يعطّل الفريق المنافس عن الإجابة، ويتيح لفريقك الإجابة في جولتين متتاليتين.'],['🐢','براحة علينا','يلغي ضغط الوقت عنك في السؤال، فتقدر تجاوب براحتك من غير التقيد بالوقت المعتاد.']];
-const n=i=>String(i+1).padStart(2,'0');
-$('#fan').innerHTML=[cards[0],cards[1],cards[2]].map(c=>slot(c[4]+'.jpg',c[0],c[2])).join('');
-$('#cardGrid').innerHTML=cards.map(c=>`<article class="ct">${slot(c[4]+'.jpg',c[0],c[2],c[1])}<h3>${c[1]}</h3><p>${c[3]}</p></article>`).join('');
-$('#helperGrid').innerHTML=helpers.map((h,i)=>`<article class="rc k" style="--c:#3fa7f0"><div style="width:90px;float:inline-start;margin-inline-end:16px">${slot('helper-'+n(i)+'.jpg',h[0],'#3fa7f0',h[1])}</div><h3>${h[1]}</h3><p>${h[2]}</p></article>`).join('');
-const gal=(id,p,ic,c,t)=>$(id).innerHTML=[...Array(8)].map((_,i)=>slot(p+'-'+n(i)+'.jpg',ic,c,t+' '+(i+1))).join('');
-gal('#penGrid','penalty','😈','#e8404b','عقاب');gal('#rewGrid','reward','🏆','#f2b01e','مكافأة');
-const tl=$('[role=tablist]'),tp=[...document.querySelectorAll('[role=tabpanel]')];
-[['اقفش Pause','pause'],['السرعة','speed'],['Hint','hint'],['اممم','umm']].forEach(([t,k],i)=>{const b=document.createElement('button');b.setAttribute('role','tab');b.textContent=t;b.style.setProperty('--c',tp[i].style.getPropertyValue('--c'));b.onclick=()=>show(i);tl.append(b)});
-function show(i){[...tl.children].forEach((b,j)=>b.setAttribute('aria-selected',i==j));tp.forEach((p,j)=>p.hidden=i!=j)}show(0);
-const links=[...document.querySelectorAll('nav a')],io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&links.forEach(a=>a.classList.toggle('on',a.hash=='#'+e.target.id))),{rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
-const sal=$('#sal'),hide=()=>sal.classList.add('h');sal.onclick=hide;setTimeout(hide,2200);
-</script>
+        $('#sq').textContent = from;
+        [...track.children].forEach((cell, i) =>
+          cell.classList.toggle('a', i + 1 === from || (to <= FINISH && i + 1 === to)));
+
+        let message;
+        if (to === FINISH)      message = '🏆 وصلت للمربع 30 بالظبط! برافووو عليييك!';
+        else if (to < FINISH)   message = `هتتحرك للمربع ${to}.`;
+        else {
+          const need = left === 1 ? 'بنقطة واحدة' : left === 2 ? 'بنقطتين أو أقل' : `بـ${left} نقط أو أقل`;
+          message = `هتفضل واقف على ${from} لحد ما تكسب سؤال ${need}.`;
+        }
+        $('#res').textContent = message;
+      };
+
+      current.addEventListener('input', update);
+      points.addEventListener('change', update);
+      update();
+    }
+
+    /* ---------- 6) النافبار: تمييز القسم الحالي ---------- */
+    function initScrollSpy() {
+      const links = $$('nav a');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          links.forEach(a => a.classList.toggle('on', a.hash === '#' + entry.target.id));
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+
+      $$('section[id]').forEach(section => observer.observe(section));
+    }
+
+    /* ---------- 7) شريط التقدم وزر "لفوق" ---------- */
+    function initScrollUI() {
+      const bar = $('#bar');
+      const up  = $('#up');
+
+      addEventListener('scroll', () => {
+        const page = document.documentElement;
+        bar.style.transform = `scaleX(${scrollY / (page.scrollHeight - innerHeight)})`;
+        up.classList.toggle('s', scrollY > 700);
+      }, { passive: true });
+    }
+
+    /* ---------- 8) الطباعة ---------- */
+    function initPrint() {
+      $('#printBtn').addEventListener('click', event => { event.preventDefault(); print(); });
+      addEventListener('beforeprint', () => $$('details').forEach(d => { d.open = true; }));
+    }
+
+    /* ---------- 9) شاشة الصلاة على النبي ---------- */
+    function initSplash() {
+      const splash = $('#sal');
+      const hide = () => splash.classList.add('h');
+      splash.addEventListener('click', hide);
+      setTimeout(hide, 2200);
+    }
+
+    /* ---------- 10) أي صورة اختيارية مش موجودة تتشال (الكارت يفضل بلونه) ---------- */
+    function removeBrokenImages() {
+      $$('img[data-optional]').forEach(img => {
+        if (img.complete && img.naturalWidth === 0) img.remove();
+      });
+    }
+    document.addEventListener('error', event => {
+      if (event.target.matches && event.target.matches('img[data-optional]')) event.target.remove();
+    }, true);
+
+    /* ---------- تشغيل ---------- */
+    renderHero();
+    renderCards();
+    renderHelpers();
+    renderGallery('#penGrid', 'penalty', '😈', '#e8404b', 'عقاب');
+    renderGallery('#rewGrid', 'reward', '🏆', '#f2b01e', 'مكافأة');
+    initBoardImage();
+    initTabs();
+    initCalculator();
+    initScrollSpy();
+    initScrollUI();
+    initPrint();
+    initSplash();
+    window.addEventListener('load', removeBrokenImages);
+    </script>
 </body>
 </html>
